@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MY PORTFOLIO</title>
+
+  <style>
+    :root{
+      --bg: #0b0d10;
+      --panel: #14171a;
+      --text: #e9eef1;
+      --muted:#9fb0bd;
+
+      --accent: #00d8ff;
+      --accent2:#ff6ad5;
+      --accent3:#7cffc4;
+
+      --glow-weak: 0 0 10px rgba(0,216,255,.35);
+      --glow-green: 0 0 15px rgba(124,255,196,.45);
+      --ring: 0 0 0 4px rgba(0,216,255,.12);
+      --radius: 14px;
+      --shadow: 0 8px 30px rgba(0,0,0,.35);
+    }
+
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    html{ scroll-behavior:smooth; }
+    body{
+      font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+      background:
+        radial-gradient(1200px 600px at 15% -10%, rgba(0,216,255,.06), transparent 60%),
+        radial-gradient(1000px 600px at 100% 10%, rgba(255,106,213,.05), transparent 60%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.65;
+    }
+    a{ color:inherit; text-decoration:none; }
+    img{ max-width:100%; display:block; }
+
+    section{
+      max-width:1100px;
+      margin-inline:auto;
+      padding:90px 20px 70px;
+    }
+    h1,h2,h3{ letter-spacing:.5px; }
+
+    /* NAVBAR */
+    .nav{
+      position:fixed; inset:0 auto auto 0; width:100%;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 20px; background:#0a0c0fcc; backdrop-filter: blur(10px);
+      border-bottom:1px solid rgba(255,255,255,.06);
+      box-shadow: var(--shadow);
+      z-index:9999;
+    }
+    .brand{
+      font-weight:700; font-size:1.05rem; letter-spacing:1.5px;
+      color:var(--accent);
+      text-shadow: var(--glow-weak);
+    }
+    .nav ul{
+      list-style:none; display:flex; gap:10px;
+    }
+    .nav a{
+      padding:8px 12px; border-radius:10px; color:#dbe7ef;
+      transition: .25s ease;
+    }
+    .nav a:hover{ background:#0f1216; box-shadow: var(--glow-weak); }
+    .nav a.active{ background:#0f1216; outline:1px solid rgba(255,255,255,.08); box-shadow: var(--glow-green); }
+
+    .menu-btn{
+      display:none; cursor:pointer; font-size:28px; line-height:1;
+      color:var(--accent);
+      border:0; background:transparent;
+    }
+
+    /* HERO */
+    #home{ display:grid; grid-template-columns: 260px 1fr; gap:34px; align-items:center; }
+    .avatar-wrap{
+      width:260px; height:260px; border-radius:50%;
+      display:grid; place-items:center; margin-inline:auto;
+      background:#0f1317;
+      border:4px solid #1f2830;
+      box-shadow: var(--glow-weak);
+      transition: all .3s ease;
+    }
+    .avatar-wrap:hover{
+      box-shadow: var(--glow-green), 0 0 30px rgba(124,255,196,.6);
+    }
+    .avatar{
+      width:232px; height:232px; border-radius:50%;
+      object-fit:cover; border:5px solid #0f1317;
+    }
+    .intro h1{
+      font-size: clamp(34px, 6.2vw, 64px);
+      font-weight:900; line-height:1.05;
+      text-transform:uppercase;
+      background: linear-gradient(90deg,var(--accent),var(--accent2));
+      -webkit-background-clip:text; background-clip:text; color:transparent;
+      margin-bottom:8px;
+    }
+    .intro .tag{
+      font-size: clamp(18px, 3.4vw, 34px);
+      font-weight:800; letter-spacing:.8px;
+      color:#ffffff;
+      margin-bottom:14px;
+    }
+    .intro p{ color:var(--muted); max-width:60ch; }
+
+    .cta-row{ display:flex; gap:12px; margin-top:18px; flex-wrap:wrap; }
+    .btn{
+      padding:10px 14px; border-radius:999px; border:1px solid rgba(255,255,255,.1);
+      background:#0e1216; color:#e7f3fb; font-weight:600;
+      transition:.25s ease;
+    }
+    .btn:hover{ transform: translateY(-1px); box-shadow: var(--glow-weak); }
+    .btn.alt{
+      background:linear-gradient(90deg, rgba(0,216,255,.12), rgba(255,106,213,.12));
+      color:#fff;
+    }
+
+    /* PANELS */
+    .panel{
+      background: var(--panel); border:1px solid rgba(255,255,255,.06);
+      border-radius: var(--radius); padding:22px; box-shadow: var(--shadow);
+      transition: all .3s ease;
+    }
+    .panel:hover{
+      box-shadow: var(--glow-green), 0 0 25px rgba(124,255,196,.4);
+      border-color: rgba(124,255,196,.5);
+    }
+    .grid-2{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+    .grid-3{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+
+    .chips{ display:flex; flex-wrap:wrap; gap:8px; }
+    .chip{
+      padding:7px 12px; border-radius:999px; font-weight:600; font-size:.95rem;
+      color:#dff9ff; background:#0f1419; border:1px solid rgba(0,216,255,.25);
+      box-shadow: var(--glow-weak);
+    }
+    .chip.m{ border-color: rgba(255,106,213,.25); }
+
+    .sec-title{
+      font-size: clamp(24px, 3.6vw, 36px);
+      margin-bottom:20px; font-weight:800;
+      color:#ffffff;
+    }
+
+    .list{ display:grid; gap:12px; margin-top:8px; }
+    .list li{
+      list-style:none; padding:14px; border-radius:12px;
+      background:#101418; border:1px solid rgba(255,255,255,.06);
+    }
+    .list li strong{ color:#fff; }
+    .muted{ color:var(--muted); }
+
+    footer{
+      text-align:center; padding:28px 16px; color:#95a6b3;
+      border-top:1px solid rgba(255,255,255,.06);
+      background:#0a0d10;
+    }
+
+    @media (max-width: 980px){
+      #home{ grid-template-columns:1fr; text-align:center; }
+      .intro p{ margin-inline:auto; }
+    }
+    @media (max-width: 860px){
+      .menu-btn{ display:block; }
+      .nav ul{
+        position:absolute; left:0; right:0; top:60px;
+        background:#0b0e12; border-bottom:1px solid rgba(255,255,255,.06);
+        display:grid; grid-template-columns:1fr; gap:0;
+        transform: translateY(-120%); opacity:0; pointer-events:none;
+        transition:.25s ease;
+      }
+      .nav.open ul{ transform: translateY(0); opacity:1; pointer-events:auto; }
+      .nav li a{ padding:14px 18px; border-radius:0; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <header class="nav" id="top">
+    <div class="brand">NIRMAL • PORTFOLIO</div>
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">☰</button>
+    <ul id="navLinks">
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#projects">Portfolio</a></li>
+      <li><a href="#roles">Positions</a></li>
+      <li><a href="#achievements">Achievements</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </header>
+
+  <!-- HERO -->
+  <section id="home">
+    <div class="avatar-wrap">
+      <img class="avatar" src="1671076475353.jpg" alt="Nirmal Kumar Chauhan" />
+    </div>
+    <div class="intro">
+      <h1>Frontend Developer</h1>
+      <div class="tag">Nirmal Kumar Chauhan</div>
+      <p>Motivated ECE student with a passion for learning and building useful solutions.
+      Hardworking and curious with interests in VLSI, core electronics, and modern web technologies — aiming to grow into a strong electronics & software professional.</p>
+      <div class="cta-row">
+        <a class="btn" href="B230056EC.pdf" download>Download Resume</a>
+        <a class="btn alt" href="#projects">View Work</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <h2 class="sec-title">About Me</h2>
+    <div class="panel">
+      <p class="muted">
+        My name is <strong>Nirmal Kumar Chauhan</strong>, originally from Ballia, Uttar Pradesh, and currently based in Gangtok, Sikkim. I completed my schooling at Sir Tashi Namgyal Senior Secondary School and I am presently pursuing a <strong>Bachelor of Technology in Electronics and Communication Engineering</strong> at the National Institute of Technology Sikkim.<br><br>
+        I have developed strong technical skills in C, Python, HTML, CSS, JavaScript, and Verilog, along with proficiency in MS Excel, Word, PowerPoint, and Google Sheets. My areas of interest include <strong>VLSI design</strong> and <strong>Web Development</strong>.<br><br>
+        Known for being hardworking, calm, and persistent, I believe in continuous learning and never giving up easily when faced with challenges. My goal is to grow as a professional who can contribute meaningfully to both electronics and modern software development.
+      </p>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <h2 class="sec-title">Skills</h2>
+    <div class="grid-3">
+      <div class="panel">
+        <h3>Programming</h3>
+        <div class="chips"><span class="chip">C</span><span class="chip">Python</span></div>
+        <p class="muted" style="margin-top:15px;"><strong>Technical Skills:</strong> MATLAB, DSA (Basics), MS Excel, MS Word, Tableau, Canva</p>
+      </div>
+      <div class="panel">
+        <h3>Web Technologies</h3>
+        <div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span><span class="chip">MySQL</span></div>
+        <p class="muted" style="margin-top:15px;">Focused on <strong>frontend</strong> with responsive layouts & interactive UI.</p>
+      </div>
+      <div class="panel">
+        <h3>Electronics</h3>
+        <div class="chips"><span class="chip m">Verilog</span><span class="chip">8085 uP</span></div>
+        <p class="muted" style="margin-top:15px;"><strong>Soft Skills:</strong> Time management, adaptability, teamwork, calmness, self-motivation</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <h2 class="sec-title">Education</h2>
+    <div class="grid-2">
+      <div class="panel"><h3>NIT Sikkim</h3><p><strong>B.Tech, ECE</strong> — CGPA 6.8</p></div>
+      <div class="panel"><h3>Sir Tashi Namgyal Sr. Sec. School</h3><p><strong>Intermediate</strong> — 82%</p></div>
+      <div class="panel"><h3>Modern Sr. Sec. School</h3><p><strong>Matriculation</strong> — 81%</p></div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <h2 class="sec-title" style="text-align:center;">My Projects</h2>
+    <div class="grid-2">
+      <div class="panel">
+        <h3>Face Recognition & Attendance</h3>
+        <img src="Screenshot 2025-09-06 202500.png" alt="Face Recognition Project" style="margin-bottom:10px; border-radius:8px;">
+        <p class="muted">This project automates attendance using live face recognition. It uses Haar Cascade for detection and LBPH for recognition via OpenCV. NumPy was used for image operations and MySQL integrated for storing student details. It increases efficiency by eliminating manual attendance marking. <a href="https://github.com/isocyanide10/face-attendance" target="_blank">View on GitHub</a>.</p>
+      </div>
+      <div class="panel">
+        <h3>Responsive Portfolio Website</h3>
+        <img src="Screenshot 2025-09-06 202244.png" alt="Portfolio Website" style="margin-bottom:10px; border-radius:8px;">
+        <p class="muted">A personal portfolio website built with HTML, CSS, and JavaScript featuring smooth navigation, responsive design, and interactive elements. It is structured to allow easy customization for future updates. The website demonstrates both my design and coding ability. <a href="https://github.com/isocyanide10/portfolio" target="_blank">View on GitHub</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- POSITIONS -->
+  <section id="roles">
+    <h2 class="sec-title">Positions of Responsibility</h2>
+    <div class="grid-2">
+      <div class="panel"><h3><a href="https://placement.nitsikkim.ac.in/" target="_blank">Training & Placement Cell — Volunteer</a></h3></div>
+      <div class="panel"><h3><a href="https://anuvrat.netlify.app/" target="_blank">ANUVRAT Club — Secretary</a></h3></div>
+    </div>
+  </section>
+
+  <!-- ACHIEVEMENTS -->
+  <section id="achievements">
+    <h2 class="sec-title">Achievements & Certificates</h2>
+    <div class="grid-2">
+      <div class="panel">
+        <h3>Achievements</h3>
+        <ul class="list">
+          <li><strong>Smart India Hackathon 2023</strong> — National level participant</li>
+          <li><strong>ENERGYED 2022</strong> — District Quiz Winner (₹10,000)</li>
+          <li><strong>Udaan Quiz</strong> — State Level Winner</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h3>Certificates</h3>
+        <ul class="list">
+          <li><a href="Delloite_certificate.pdf" target="_blank">Data Analytics Job Simulation (Deloitte) — View Certificate</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2 class="sec-title">Contact</h2>
+    <div class="panel">
+      <p><strong>Email:</strong> <a href="mailto:cnirmal662@gmail.com">cnirmal662@gmail.com</a></p>
+      <p><strong>Phone:</strong> <a href="tel:+919382576804">+91 93825 76804</a></p>
+      <p><strong>Location:</strong> Gangtok, Sikkim</p>
+      <p style="margin-top:10px;">
+        <a class="btn" href="https://github.com/isocyanide10" target="_blank">GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/nirmal-kumar-chauhan-7a2b64320/" target="_blank">LinkedIn</a>
+      </p>
+    </div>
+  </section>
+
+  <footer>© 2025 Nirmal Kumar Chauhan • All Rights Reserved</footer>
+
+  <!-- JS -->
+  <script>
+    const nav = document.querySelector('.nav');
+    const menuBtn = document.getElementById('menuBtn');
+    const links = document.querySelectorAll('#navLinks a');
+
+    menuBtn.addEventListener('click', () => {
+      nav.classList.toggle('open');
+    });
+
+    links.forEach(a => {
+      a.addEventListener('click', () => {
+        nav.classList.remove('open');
+      });
+    });
+
+    const sections = document.querySelectorAll("section");
+    window.addEventListener("scroll", () => {
+      let current = "";
+      sections.forEach(sec => {
+        const top = window.scrollY;
+        const offset = sec.offsetTop - 100;
+        const height = sec.offsetHeight;
+        if (top >= offset && top < offset + height) {
+          current = sec.getAttribute("id");
+        }
+      });
+      links.forEach(a => {
+        a.classList.remove("active");
+        if (a.getAttribute("href") === "#" + current) {
+          a.classList.add("active");
+        }
+      });
+    });
+  </script>
+</body>
+</html>
