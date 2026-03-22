@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>MY PORTFOLIO</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 
   <style>
     :root{
@@ -176,6 +177,23 @@
       .nav.open ul{ transform: translateY(0); opacity:1; pointer-events:auto; }
       .nav li a{ padding:14px 18px; border-radius:0; }
     }
+
+    .chip i {
+  font-size: 18px;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+.chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.chip:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(0,216,255,0.5);
+}
+
   </style>
 </head>
 
@@ -202,11 +220,15 @@
       <img class="avatar" src="1671076475353.jpg" alt="Nirmal Kumar Chauhan" />
     </div>
     <div class="intro">
-      <h1>Frontend Developer</h1>
+      <h1>Embedded Systems Enthusiast</h1>
       <div class="tag">Nirmal Kumar Chauhan</div>
-      <p>Motivated ECE student with a passion for learning and building useful solutions.
-      Hardworking and curious with interests in VLSI, core electronics, and modern web technologies — aiming to grow into a strong electronics & software professional.</p>
+      
+Motivated Electronics and Communication Engineering student with a strong passion for learning and building impactful real-world solutions. Hardworking, curious, and persistent, with core interests in <strong >Embedded Systems, FPGA design, Communication Protocols, and Artificial Intelligence/Machine Learning</strong>
+
+Aiming to grow into a skilled professional in <strong>Embedded Systems and Electronics Design</strong>, with the ability to bridge hardware and software to develop innovative and efficient solutions.
+
       <div class="cta-row">
+        
         <a class="btn" href="B230056EC.pdf" download>Download Resume</a>
         <a class="btn alt" href="#projects">View Work</a>
       </div>
@@ -218,35 +240,85 @@
     <h2 class="sec-title">About Me</h2>
     <div class="panel">
       <p class="muted">
-        My name is <strong>Nirmal Kumar Chauhan</strong>, originally from Ballia, Uttar Pradesh, and currently based in Gangtok, Sikkim. I completed my schooling at Sir Tashi Namgyal Senior Secondary School and I am presently pursuing a <strong>Bachelor of Technology in Electronics and Communication Engineering</strong> at the National Institute of Technology Sikkim.<br><br>
-        I have developed strong technical skills in C, Python, HTML, CSS, JavaScript, and Verilog, along with proficiency in MS Excel, Word, PowerPoint, and Google Sheets. My areas of interest include <strong>VLSI design</strong> and <strong>Web Development</strong>.<br><br>
-        Known for being hardworking, calm, and persistent, I believe in continuous learning and never giving up easily when faced with challenges. My goal is to grow as a professional who can contribute meaningfully to both electronics and modern software development.
+        <p>
+My name is <strong>Nirmal Kumar Chauhan</strong>, originally from Ballia, Uttar Pradesh, and currently based in Gangtok, Sikkim. I completed my schooling at Sir Tashi Namgyal Senior Secondary School and I am presently pursuing a <strong>Bachelor of Technology in Electronics and Communication Engineering</strong> at the National Institute of Technology Sikkim.<br><br>
+
+I have developed strong technical skills in <strong>C, Python, Verilog</strong>, along with proficiency in tools such as <strong>MATLAB, Jupyter Notebook, MS Excel, Word, PowerPoint,Google Docs and Google Sheets</strong>. My core areas of interest include <strong>Embedded Systems, Verilog, Communication Protocols, FPGA design using Vivado tools</strong>, and I also have a growing interest in <strong>Artificial Intelligence and Machine Learning</strong>.<br><br>
+
+I have hands-on exposure to FPGA development and have worked with <strong>Vivado tools</strong>. I also possess basic knowledge of VLSI design tools such as <strong>OpenROAD</strong>, gained through attending a dedicated workshop. Currently, I am working on a project focused on <strong>Human and AI Voice Detection</strong>.<br><br>
+
+I am fluent in <strong>English and Hindi</strong> and am known for being hardworking, calm, and persistent with a strong problem-solving mindset.<br><br>
+
+I am highly interested in pursuing opportunities in <strong>Embedded Software Engineering, Electronics Design, IoT Development, and IT roles</strong>, where I can apply my technical skills to build real-world solutions.
+</p>
       </p>
     </div>
   </section>
 
+  <section id="summary">
+  <h2 class="sec-title">Technical Summary</h2>
+  <div class="panel">
+    <p class="muted">
+      Strong foundation in embedded systems, digital design, and electronics. Experienced in FPGA-based design using Verilog and Vivado tools, along with basic exposure to VLSI design tools such as OpenROAD and Cadence. Familiar with communication protocols and interested in developing intelligent embedded solutions integrating AI/ML.
+    </p>
+  </div>
+</section>
+
   <!-- SKILLS -->
   <section id="skills">
-    <h2 class="sec-title">Skills</h2>
-    <div class="grid-3">
-      <div class="panel">
-        <h3>Programming</h3>
-        <div class="chips"><span class="chip">C</span><span class="chip">Python</span></div>
-        <p class="muted" style="margin-top:15px;"><strong>Technical Skills:</strong> MATLAB, DSA (Basics), MS Excel, MS Word, Tableau, Canva</p>
-      </div>
-      <div class="panel">
-        <h3>Web Technologies</h3>
-        <div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span><span class="chip">MySQL</span></div>
-        <p class="muted" style="margin-top:15px;">Focused on <strong>frontend</strong> with responsive layouts & interactive UI.</p>
-      </div>
-      <div class="panel">
-        <h3>Electronics</h3>
-        <div class="chips"><span class="chip m">Verilog</span><span class="chip">8085 uP</span></div>
-        <p class="muted" style="margin-top:15px;"><strong>Soft Skills:</strong> Time management, adaptability, teamwork, calmness, self-motivation</p>
-      </div>
-    </div>
-  </section>
+  <h2 class="sec-title">Skills</h2>
+  <div class="grid-3">
+    
+    <div class="panel">
+      <h3>Programming</h3>
+      <div class="chips">
 
+  <span class="chip"><i class="devicon-c-plain colored"></i> C</span>
+
+  <span class="chip"><i class="devicon-cplusplus-plain colored"></i> C++</span>
+
+  <span class="chip"><i class="devicon-python-plain colored"></i> Python</span>
+
+  <span class="chip"><i class="devicon-matlab-plain colored"></i> MATLAB</span>
+
+</div>
+      <p class="muted" style="margin-top:15px;">
+        <strong>Technical Skills:</strong> DSA (Basics),FPGA, Google sheets,Google Docs, Tableau, Jupyter Notebook
+      </p>
+    </div>
+
+    <div class="panel">
+      <h3>Hardware & Tools</h3>
+      <div class="chips">
+
+  <span class="chip">🔌 FPGA</span>
+
+  <span class="chip">⚡ Vivado</span>
+
+  <span class="chip">🧠 OpenROAD</span>
+
+  <span class="chip">📐 Cadence</span>
+
+</div>
+      <p class="muted" style="margin-top:15px;">
+        Experienced in <strong>FPGA development using Vivado</strong> and basic exposure to <strong>VLSI design tools</strong>.
+      </p>
+    </div>
+
+    <div class="panel">
+      <h3>Core Interests</h3>
+      <div class="chips">
+        <span class="chip m">Embedded Systems</span>
+        <span class="chip">AI & ML</span>
+        <span class="chip">Communication Protocols</span>
+      </div>
+      <p class="muted" style="margin-top:15px;">
+        <strong>Soft Skills:</strong> Time management, adaptability, teamwork, calmness, self-motivation
+      </p>
+    </div>
+
+  </div>
+</section>
   <!-- EDUCATION -->
   <section id="education">
     <h2 class="sec-title">Education</h2>
@@ -265,14 +337,34 @@
         <h3>Face Recognition & Attendance</h3>
         <img src="Screenshot 2025-09-06 202500.png" alt="Face Recognition Project" style="margin-bottom:10px; border-radius:8px;">
         <p class="muted">This project automates attendance using live face recognition. It uses Haar Cascade for detection and LBPH for recognition via OpenCV. NumPy was used for image operations and MySQL integrated for storing student details. It increases efficiency by eliminating manual attendance marking. <a href="https://github.com/isocyanide10/face-attendance" target="_blank">View on GitHub</a>.</p>
+
+        <div class="cta-row">
+  <a class="btn" href="https://github.com/isocyanide10/face-attendance" target="_blank">GitHub</a>
+  <a class="btn alt" href="#">Live Demo</a>
+</div>
       </div>
       <div class="panel">
         <h3>Responsive Portfolio Website</h3>
-        <img src="Screenshot 2025-09-06 202244.png" alt="Portfolio Website" style="margin-bottom:10px; border-radius:8px;">
+        <img src="Screenshot 2026-03-22 122213.png" alt="Portfolio Website" style="margin-bottom:10px; border-radius:8px;">
         <p class="muted">A personal portfolio website built with HTML, CSS, and JavaScript featuring smooth navigation, responsive design, and interactive elements. It is structured to allow easy customization for future updates. The website demonstrates both my design and coding ability. <a href="https://github.com/isocyanide10/portfolio" target="_blank">View on GitHub</a>.</p>
       </div>
     </div>
+    <div class="panel">
+  <div class="panel">
+  <h3>Smart Home Automation System</h3>
+
+  <img src="home_automation.png" alt="Smart Home Automation Project" 
+       style="margin-bottom:10px; border-radius:8px;">
+
+  <p class="muted">
+    IoT-Based Smart Home Automation System (Simulation)
+
+Designed and simulated an IoT-based smart home automation system using a microcontroller with PIR and temperature sensors to automatically control lights and fans based on real-time conditions, achieving energy-efficient operation while demonstrating practical embedded system and sensor interfacing concepts in an Arduino simulation environment.
+  </p>
+</div>
   </section>
+
+  
 
   <!-- POSITIONS -->
   <section id="roles">
@@ -282,6 +374,7 @@
       <div class="panel"><h3><a href="https://anuvrat.netlify.app/" target="_blank">ANUVRAT Club — Secretary</a></h3></div>
     </div>
   </section>
+  
 
   <!-- ACHIEVEMENTS -->
   <section id="achievements">
